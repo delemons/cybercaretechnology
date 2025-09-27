@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberCare Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-color: #1a1a1a;
+      --accent-color: #0099cc;
+      --background: #ffffff;
+      --tile-bg: #ffffff;
+      --border-color: #e0e0e0;
+      --highlight-border: #b3e0ff;
+      --font: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--background);
+      padding: 1.5em 2em;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background-image: url('images/data-center.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 6em 2em;
+      color: white;
+      position: relative;
+      border: 2px solid var(--highlight-border);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.9rem;
+      background-color: var(--accent-color);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 3em 2em;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2.section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2em;
+      position: relative;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .tile {
+      background-color: var(--tile-bg);
+      border: 2px solid var(--highlight-border);
+      border-radius: 10px;
+      padding: 1.5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .tile h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.8em;
+      text-align: center;
+    }
+
+    .tile img.service-img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 1em;
+      border: none;
+    }
+
+    .tile p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1em;
+    }
+
+    .more-text {
+      display: none;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .more-text.show {
+      display: inline;
+    }
+
+    .read-more-btn {
+      background: none;
+      color: var(--accent-color);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: auto;
+    }
+
+    .founder-photo {
+      width: 100%;
+      max-width: 200px;
+      margin-top: 1em;
+      border-radius: 8px;
+      border: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    input, textarea {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+    }
+
+    button[type="submit"] {
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 10px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      text-align: left;
+      margin-left: 2em;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        position: static;
+        display: block;
+        margin-top: 1em;
+        text-align: left;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 6px 10px;
+      }
+
+      .contact-info {
+        margin-left: 0;
+        font-size: 0.85rem;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CyberCare Technology</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h2>Empowering Your Digital Transformation Journey</h2>
+    <p>Unlock efficiency and growth with our expert IT consulting and tailored SaaS solutions.</p>
+  </div>
+  <a href="https://calendly.com/dezlemons" target="_blank" class="cta-button">📅 Book a Consultation</a>
+</section>
+
+<section id="services">
+  <h2 class="section-heading">Comprehensive Services</h2>
+  <div class="services">
+    <!-- Tile 1 -->
+    <div class="tile">
+      <h3>AI-Enabled Product and Program Strategy</h3>
+      <img src="images/black-woman-tech.jpg" alt="AI Services" class="service-img">
+      <p>
+        AI consulting, deployment & automation for innovative business growth.
+        <span class="more-text"> We help organizations shape products that scale through tailored insights and cutting-edge solutions.</span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <!-- Tile 2 -->
+    <div class="tile">
+      <h3>Data Center Solutions</h3>
+      <img src="images/data-center.jpg" alt="Data Center" class="service-img">
+      <p>
+        Secure, scalable infrastructure solutions for mission-critical operations.
+        <span class="more-text"> We partner with providers to ensure uptime, compliance, and efficiency at every layer of your stack.</span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <!-- Tile 3 -->
+    <div class="tile">
+      <h3>Process Optimization</h3>
+      <img src="images/black-man-tech.jpg" alt="Program Management" class="service-img">
+      <p>
+        Comprehensive planning and oversight for seamless digital execution.
+        <span class="more-text"> Our frameworks ensure transparency, timeliness, and stakeholder alignment across teams.</span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <!-- Tile 4 -->
+    <div class="tile">
+      <h3>Career Coaching</h3>
+      <img src="images/diverse-team.jpg" alt="Coaching Services" class="service-img">
+      <p>
+        Personalized leadership and team development for long-term success.
+        <span class="more-text"> We elevate leaders and nurture collaborative, high-performance cultures through intentional coaching.</span>
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+
+    <!-- Tile 5 -->
+    <div class="tile">
+      <h3>The Team</h3>
+       <img src="images/founder.jpg" alt="Desiree Lemons" class="founder-photo">
+       <p>Our team of consultants, engineers, and strategists is passionate about delivering results.</p>
+       <button class="read-more-btn">Read More</button>
+      <!-- <a href="https://calendly.com/dezlemons" target="_blank" class="cta-button">📅 Book a Consultation </a>-->
+    </div>
+
+    <!-- Tile 6 -->
+    <div class="tile">
+      <h3>Contact Us</h3>
+      <p>Have questions or want to work with us? Send us a message below.</p>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="3" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-info" style="margin-top: 2em;">
+    <p>Email: <a href="mailto:desiree.lemons@cybercaretechnology.com">desiree.lemons@cybercaretechnology.com</a></p>
+  </div>
+</section>
+
+<!-- ✅ Read More JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.read-more-btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', function () {
+        const tile = button.closest('.tile');
+        const moreText = tile.querySelector('.more-text');
+        moreText.classList.toggle('show');
+        button.textContent = moreText.classList.contains('show') ? 'Read Less' : 'Read More';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
